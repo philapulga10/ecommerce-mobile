@@ -12,7 +12,7 @@ type RouteParams = {
 type ProductDetailRouteProp = RouteProp<{ params: RouteParams }, "params">;
 
 const ProductDetail = ({ route }: { route: ProductDetailRouteProp }) => {
-  const [productDetail, setProductDeatil] = useState<Product>();
+  const [productDetail, setProductDetail] = useState<Product>();
   const [quantity, setQuantity] = useState(1);
 
   const { params } = route;
@@ -38,8 +38,12 @@ const ProductDetail = ({ route }: { route: ProductDetailRouteProp }) => {
       (product) => product._id === Number(params._id)
     );
 
-    setProductDeatil(product);
+    setProductDetail(product);
   }, [params?._id]);
+
+  if (!productDetail) {
+    return <Text>Loading...</Text>;
+  }
 
   return (
     <Layout>
@@ -54,8 +58,11 @@ const ProductDetail = ({ route }: { route: ProductDetailRouteProp }) => {
           <TouchableOpacity
             style={styles.btnCart}
             onPress={() => alert(`${quantity} items added to cart`)}
+            disabled={productDetail?.quantity <= 0}
           >
-            <Text style={styles.btnCartText}>ADD TO CART</Text>
+            <Text style={styles.btnCartText}>
+              {productDetail?.quantity > 0 ? "ADD TO CART" : "OUT OF STOCK"}
+            </Text>
           </TouchableOpacity>
           <View style={styles.btnContainer}>
             <TouchableOpacity

@@ -3,16 +3,30 @@ import React from "react";
 
 import AntDesign from "react-native-vector-icons/AntDesign";
 
-import { useRoute } from "@react-navigation/native";
+import {
+  useRoute,
+  useNavigation,
+  NavigationProp,
+} from "@react-navigation/native";
+
+export type RootStackParamList = {
+  home: undefined;
+  notification: undefined;
+  account: undefined;
+  cart: undefined;
+  logout: undefined;
+  checkout: undefined;
+};
 
 const Footer = () => {
   const route = useRoute();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.menuContainer}
-        onPress={() => alert("home page")}
+        onPress={() => navigation.navigate("home")}
       >
         <AntDesign
           name="home"
@@ -55,7 +69,7 @@ const Footer = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.menuContainer}
-        onPress={() => alert("Cart page")}
+        onPress={() => navigation.navigate("cart")}
       >
         <AntDesign
           name="shoppingcart"
