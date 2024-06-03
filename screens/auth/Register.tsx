@@ -6,7 +6,7 @@ import { RootStackParamList } from "@/app";
 import InputBox from "@/components/Form/InputBox";
 
 type RegisterScreenProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, "register">;
+  navigation: NativeStackNavigationProp<RootStackParamList>;
 };
 
 const Register = ({ navigation }: RegisterScreenProps) => {

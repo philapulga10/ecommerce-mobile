@@ -7,6 +7,7 @@ import ProductDetail from "@/screens/ProductDetail";
 import Cart from "@/screens/Cart";
 import Login from "@/screens/auth/Login";
 import Register from "@/screens/auth/Register";
+import Checkout from "@/screens/Checkout";
 
 export type RootStackParamList = {
   home: undefined;
@@ -15,6 +16,7 @@ export type RootStackParamList = {
   register: undefined;
   cart: undefined;
   mobile: undefined;
+  checkout: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -29,6 +31,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="productDetail" component={ProductDetail} />
+        <Stack.Screen name="checkout" component={Checkout} />
         <Stack.Screen
           name="login"
           component={Login}

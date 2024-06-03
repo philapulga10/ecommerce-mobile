@@ -7,13 +7,18 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-import { cartData } from "@/data/cartData";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/app";
 import PriceTable from "@/components/Cart/PriceTable";
 import Layout from "@/components/Layout/Layout";
 import CartItem from "@/components/Cart/CartItem";
+import { cartData } from "@/data/cartData";
 
-// review any type
-const Cart = ({ navigation }: { navigation: any }) => {
+type CartScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList>;
+};
+
+const Cart = ({ navigation }: CartScreenProps) => {
   const [cartItems] = useState(cartData);
 
   return (

@@ -1,9 +1,15 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
+
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/app";
 import InputBox from "@/components/Form/InputBox";
 
-// review any type
-const Login = ({ navigation }: { navigation: any }) => {
+type LoginScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList>;
+};
+
+const Login = ({ navigation }: LoginScreenProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

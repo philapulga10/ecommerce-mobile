@@ -21,7 +21,6 @@ const Categories = () => {
           <View key={category._id}>
             <TouchableOpacity
               style={styles.categoriesContainer}
-              // review type never
               onPress={() => navigation.navigate(category.path as never)}
             >
               <AntDesign name={category.icon} style={styles.categoryIcon} />
