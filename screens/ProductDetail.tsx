@@ -1,17 +1,19 @@
 import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RouteProp } from "@react-navigation/native";
 import { Product } from "@/components/Products/ProductsCard";
 import Layout from "@/components/Layout/Layout";
+import { RootStackParamList } from "@/app";
 import { productsData } from "@/data/productsData";
 
-type RouteParams = {
-  _id: string;
+type ProductDetailScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "productDetail">;
+  route: RouteProp<RootStackParamList, "productDetail">;
 };
-type ProductDetailRouteProp = RouteProp<{ params: RouteParams }, "params">;
 
-const ProductDetail = ({ route }: { route: ProductDetailRouteProp }) => {
+const ProductDetail = ({ route }: ProductDetailScreenProps) => {
   const [productDetail, setProductDetail] = useState<Product>();
   const [quantity, setQuantity] = useState(1);
 

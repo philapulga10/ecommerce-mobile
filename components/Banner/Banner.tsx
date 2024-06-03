@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 
+// review
 import Carousel, { PaginationLight } from "react-native-x-carousel";
 
 import { bannerData } from "@/data/bannerData";
